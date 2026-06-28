@@ -1,0 +1,36 @@
+.photo-grid {
+  padding: 12px 12px 88px;
+
+  ion-col {
+    padding: 4px;
+  }
+
+  img {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.empty-gallery {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 70%;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0 0 8px;
+  }
+
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+  }
+}

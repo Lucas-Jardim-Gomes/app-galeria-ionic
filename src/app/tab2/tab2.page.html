@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Galeria de Fotos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Galeria de Fotos</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  @if (fotoService.photos.length === 0) {
+    <div class="empty-gallery">
+      <h2>Nenhuma foto ainda</h2>
+      <p>Toque na câmera para adicionar sua primeira imagem.</p>
+    </div>
+  } @else {
+    <ion-grid class="photo-grid">
+      <ion-row>
+        @for (photo of fotoService.photos; track photo.filepath) {
+          <ion-col size="6" size-md="4" size-lg="3">
+            <img [src]="photo.webviewPath" alt="Foto da galeria" />
+          </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  }
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+
+    <ion-fab-button (click)="addPhotoToGallery()">
+
+      <ion-icon name="camera"></ion-icon>
+
+    </ion-fab-button>
+
+  </ion-fab>
+
 </ion-content>
